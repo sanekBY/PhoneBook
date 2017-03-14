@@ -10,6 +10,9 @@ app.config(['$routeProvider', '$locationProvider',
         .when('/contact/:id', {
             templateUrl: 'contact.html', controller: 'ContactDetailCtrl'
         })
+        .when('/contact-edit/:id', {
+            templateUrl: 'contact-edit.html', controller: 'ContactEditCtrl'
+        })
         .when('/create-phone', {
             templateUrl: 'create-phone.html', controller: 'PhoneBookCreationCtrl'
         })

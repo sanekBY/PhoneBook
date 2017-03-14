@@ -36,6 +36,10 @@ public class PhoneController {
     public PhoneBook getContact(@PathVariable("id") Integer id) {
         return phoneService.getContact(id);
     }
+    @RequestMapping(value = "/api/contact/{id}", method = {RequestMethod.PUT})
+    public PhoneBook editContact(@PathVariable("id") Integer id) {
+        return phoneService.editContact(id);
+    }
 
     @RequestMapping(value = "/api/contact/{id}", method = {RequestMethod.DELETE})
     public void deleteContact(@PathVariable("id") Integer id) {

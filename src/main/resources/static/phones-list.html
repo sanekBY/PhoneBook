@@ -7,6 +7,7 @@
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Дата рождения</th>
+                <th></th>
             </tr>
         </thead>
         <tbody >
@@ -14,18 +15,28 @@
                 <td class="col-sm-1">
                     <a href="contact/{{item.id}}">{{item.id}}</a>
                 </td>
-                <td class="col-sm-1" >
+                <td class="col-sm-2" >
                     {{item.lastName}}
                 </td>
-                <td class="col-sm-1">
+                <td class="col-sm-2">
                     {{item.firstName}}
                 </td>
-                <td class="col-sm-1">
+                <td class="col-sm-2">
                     {{item.middleName}}
                 </td>
 
                 <td class="col-sm-1">
                     {{item.dateOfBirth}}
+                </td>
+                <td class="col-sm-1">
+                    <div class="button pull-left">
+                        <a href="contact/{{item.id}}" class="btn btn-small btn-success">Просмотреть</a>
+                    </div>
+                </td>
+                <td class="col-sm-1">
+                    <div class="button pull-left">
+                        <a href="contact-edit/{{item.id}}" class="btn btn-small btn-warning">Редактировать</a>
+                    </div>
                 </td>
             </tr>
         </tbody>

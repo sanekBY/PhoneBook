@@ -32,7 +32,7 @@
                         <select data-ng-model="item.phoneType">
                             <option data-ng-repeat="type in phoneTypes" value="{{type.id}}">{{type.name}}</option>
                         </select>
-
+                        <input type="checkbox" data-ng-model="item.defaultUsage" value="true">По умолчанию</input>
                         <button class="remove" data-ng-show="$last" data-ng-click="removePhone()">-</button>
                         <button class="add" data-ng-show="$last" data-ng-click="addPhone()">+</button>
                     </div>
@@ -42,6 +42,7 @@
             <fieldset  id = "addresses"  data-ng-repeat="item in addresses">
                 <div class="input-lg" >
                     <input type="text" data-ng-model="item.address"/>
+                    <input type="checkbox" data-ng-model="item.defaultUsage" value="true">По умолчанию</input>
                     <button class="remove" data-ng-show="$last" data-ng-click="removeAddress()">-</button>
                     <button class="add" data-ng-show="$last" data-ng-click="addAddress()">+</button>
                 </div>
@@ -54,6 +55,7 @@
                     <select data-ng-model="item.emailType">
                         <option data-ng-repeat="type in emailTypes" value="{{type.id}}">{{type.name}}</option>
                     </select>
+                    <input type="checkbox" data-ng-model="item.defaultUsage" value="true">По умолчанию</input>
                     <button class="remove" data-ng-show="$last" data-ng-click="removeEmail()">-</button>
                     <button class="add" data-ng-show="$last" data-ng-click="addEmail()">+</button>
                 </div>

@@ -18,10 +18,5 @@ services.factory('ContactFactory', function ($resource) {
     })
 });
 
-services.factory('PhoneFactorySec', function ($resource) {
-    return $resource('/api/voter/:id', {}, {
-        update: { method: 'PUT', params: {id:'@id'} }
-    })
-});
 
 
