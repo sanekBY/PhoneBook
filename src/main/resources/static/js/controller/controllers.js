@@ -16,26 +16,6 @@ app.run(function($rootScope, $templateCache) {
 
 app.controller('PhoneBookListCtrl', ['$scope', 'PhonesFactory', '$location',
     function ($scope, PhonesFactory, $location) {
-
-        // $scope.editVoter = function (voterId) {
-        //     $location.path('/voter/' + voterId);
-        // };
-        //
-        // $scope.setStatus = function(status) {
-        //     if (status) {
-        //         $scope.myDynamicClass = 'some-css-class';
-        //         return "Закрыто";
-        //     } else {
-        //         $scope.myDynamicClass = 'background-color:gray;';
-        //         return "Открыто";
-        //     }
-        // };
-        //
-        // $scope.getStatusColor = function (status) {
-        //     if (status) return "red";
-        //     else  return "green";
-        // };
-
         $scope.phoneBooks = PhonesFactory.query();
     }]);
 

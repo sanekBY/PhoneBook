@@ -7,26 +7,39 @@
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Дата рождения</th>
+                <th>Адрес</th>
+                <th>email</th>
+                <th>Телефон</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody >
             <tr data-ng-repeat="item in phoneBooks" >
                 <td class="col-sm-1">
-                    <a href="contact/{{item.id}}">{{item.id}}</a>
+                    {{item.id}}
                 </td>
-                <td class="col-sm-2" >
+                <td class="col-sm-1" >
                     {{item.lastName}}
                 </td>
-                <td class="col-sm-2">
+                <td class="col-sm-1">
                     {{item.firstName}}
                 </td>
-                <td class="col-sm-2">
+                <td class="col-sm-1">
                     {{item.middleName}}
                 </td>
 
                 <td class="col-sm-1">
                     {{item.dateOfBirth}}
+                </td>
+                <td class="col-sm-1">
+                    {{item.addressList[0].address}}
+                </td>
+                <td class="col-sm-1">
+                    {{item.mailList[0].email}}
+                </td>
+                <td class="col-sm-1"  >
+                    {{item.phoneList[0].phoneNumber}}
                 </td>
                 <td class="col-sm-1">
                     <div class="button pull-left">
