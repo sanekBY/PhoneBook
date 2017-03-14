@@ -11,6 +11,7 @@ import java.util.List;
 public interface PhoneService {
     List<PhoneBook> findAll();
     void createPhoneBook(PhoneBook phoneBook);
-    PhoneBook editPhoneBook();
-    void deletePhoneBook(Integer id);
+    PhoneBook editContact(Integer id);
+    void deleteContact(Integer id);
+    PhoneBook getContact(Integer id);
 }

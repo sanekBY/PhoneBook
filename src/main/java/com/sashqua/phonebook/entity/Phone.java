@@ -11,18 +11,18 @@ public class Phone {
 
     private Integer id;
     private Integer phbook_id;
-    private Integer phoneNumber;
+    private String phoneNumber;
     private Integer phoneType;
     private boolean defaultUsage;
 
     public Phone() {
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

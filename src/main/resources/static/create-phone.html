@@ -28,7 +28,7 @@
             <label  class="control-label" for="phones">Телефон:</label>
             <fieldset  id = "phones"  data-ng-repeat="item in phones">
                     <div class="input-lg" >
-                        <input type="text" data-ng-model="item.phoneNumber" required/>
+                        <input type="tel" data-ng-model="item.phoneNumber" required/>
                         <select data-ng-model="item.phoneType">
                             <option data-ng-repeat="type in phoneTypes" value="{{type.id}}">{{type.name}}</option>
                         </select>

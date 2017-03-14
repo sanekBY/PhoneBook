@@ -5,11 +5,11 @@ app.config(['$routeProvider', '$locationProvider',
         function($routeProvider,  $locationProvider) {
         $routeProvider
         .when('/', {
-            templateUrl: 'phones-list.html', controller: 'PhoneListCtrl'
+            templateUrl: 'phones-list.html', controller: 'PhoneBookListCtrl'
         })
-        // .when('/voter/:id', {
-        //     templateUrl: 'voter.html', controller: 'VoterDetailCtrl'
-        // })
+        .when('/contact/:id', {
+            templateUrl: 'contact.html', controller: 'ContactDetailCtrl'
+        })
         .when('/create-phone', {
             templateUrl: 'create-phone.html', controller: 'PhoneBookCreationCtrl'
         })

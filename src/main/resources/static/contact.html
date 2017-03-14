@@ -1,0 +1,49 @@
+<div class="row" xmlns:h="http://www.w3.org/1999/html">
+    <div class="col-md-12">
+        <div class="panel">
+            <div class="panel-heading title center-block">{{contact.lastName}} {{contact.firstName}} {{contact.middleName}} </div>
+            <div class="panel-body" >
+                 Дата рождения: {{contact.dateOfBirth}}
+                <div class="panel panel-info ">
+                    <table class="table table-hover table-bordered">
+                        <tbody >
+                        <tr data-ng-repeat="item in contact.phoneList" >
+                            <td class="">Телефон {{item.id}}: {{item.phoneNumber}}</td>
+                            <td class="" >{{phoneTypes[item.phoneType-1].name}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel panel-info ">
+                    <table class="table table-hover table-bordered">
+                        <tbody >
+                        <tr data-ng-repeat="item in contact.addressList" >
+                            <td class="">Адрес {{item.id}}: {{item.address}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel panel-info ">
+                    <table class="table table-hover table-bordered">
+                        <tbody >
+                        <tr data-ng-repeat="item in contact.mailList" >
+                            <td class="">Email {{item.id}}: {{item.email}}</td>
+                            <td class="" >{{emailTypes[item.emailType-1].name}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <!--<div data-ng-hide="voter.isclosed" class="button">-->
+                <!--<a data-ng-click="updateVoter()" class="btn btn-small btn-success">Ответить</a>-->
+            <div class="button pull-left">
+                <a data-ng-click="deleteContact()" class="btn btn-small btn-danger">Удалить</a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -14,8 +14,8 @@ app.run(function($rootScope, $templateCache) {
     });
 });
 
-app.controller('PhoneListCtrl', ['$scope', 'PhonesFactory', 'PhoneFactory', '$location',
-    function ($scope, PhonesFactory, PhoneFactory, $location) {
+app.controller('PhoneBookListCtrl', ['$scope', 'PhonesFactory', '$location',
+    function ($scope, PhonesFactory, $location) {
 
         // $scope.editVoter = function (voterId) {
         //     $location.path('/voter/' + voterId);
@@ -39,29 +39,35 @@ app.controller('PhoneListCtrl', ['$scope', 'PhonesFactory', 'PhoneFactory', '$lo
         $scope.phoneBooks = PhonesFactory.query();
     }]);
 
-app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$location',
-    function ($scope, $routeParams, VoterFactory,  $location) {
+app.controller('ContactDetailCtrl', ['$scope', '$routeParams', 'ContactFactory', '$location',
+    function ($scope, $routeParams, ContactFactory,  $location) {
+        $scope.contact = ContactFactory.show({id: $routeParams.id});
 
-        $scope.updateVoter = function () {
-            var radios = document.getElementsByName("radioBut");
-            var x;
-            for (var i = 0,  length = radios.length; i < length; i++) {
-                if (radios[i].checked) {
-                    x = parseInt(radios[i].value, 10);
-                    // x = 1;
-                    break;
-                }
-            }
-            VoterFactory.update({id : x});
+        $scope.phoneTypes = [{id:1, name: "Рабочий"},
+                            {id:2, name: "Домашний"},
+                            {id:3, name: "Мобильный"}];
+        $scope.emailTypes = [{id:1, name: "Рабочая"},
+            {id:2, name: "Домашняя"}];
+        // $scope.updateVoter = function () {
+        //     var radios = document.getElementsByName("radioBut");
+        //     var x;
+        //     for (var i = 0,  length = radios.length; i < length; i++) {
+        //         if (radios[i].checked) {
+        //             x = parseInt(radios[i].value, 10);
+        //             // x = 1;
+        //             break;
+        //         }
+        //     }
+        //     VoterFactory.update({id : x});
+        //     $location.path('/');
+        //
+        // };
+
+        $scope.deleteContact = function () {
+            ContactFactory.delete({id : $scope.contact.id})
             $location.path('/');
-
         };
 
-        // $scope.closeVoter = function () {
-        //     VoterFactorySec.update({id : $scope.voter.id})
-        //     $location.path('/');
-        // };
-        $scope.voter = VoterFactory.show({id: $routeParams.id});
     }]);
 
 app.controller('PhoneBookCreationCtrl', ['$scope', 'PhonesFactory', '$location',

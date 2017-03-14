@@ -4,10 +4,7 @@ import com.sashqua.phonebook.entity.Phone;
 import com.sashqua.phonebook.entity.PhoneBook;
 import com.sashqua.phonebook.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -33,5 +30,15 @@ public class PhoneController {
     @RequestMapping(value = "/api/phones" ,  method = {RequestMethod.POST})
     public void setPhone(@RequestBody @Valid final PhoneBook phoneBook) {
         phoneService.createPhoneBook(phoneBook);
+    }
+
+    @RequestMapping(value = "/api/contact/{id}", method = {RequestMethod.GET})
+    public PhoneBook getContact(@PathVariable("id") Integer id) {
+        return phoneService.getContact(id);
+    }
+
+    @RequestMapping(value = "/api/contact/{id}", method = {RequestMethod.DELETE})
+    public void deleteContact(@PathVariable("id") Integer id) {
+        phoneService.deleteContact(id);
     }
 }

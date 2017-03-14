@@ -12,7 +12,7 @@
         <tbody >
             <tr data-ng-repeat="item in phoneBooks" >
                 <td class="col-sm-1">
-                    {{item.id}}
+                    <a href="contact/{{item.id}}">{{item.id}}</a>
                 </td>
                 <td class="col-sm-1" >
                     {{item.lastName}}

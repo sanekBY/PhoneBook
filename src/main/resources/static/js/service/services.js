@@ -10,9 +10,10 @@ services.factory('PhonesFactory', function ($resource) {
     })
 });
 
-services.factory('PhoneFactory', function ($resource) {
-    return $resource('/api/phone/:id', {}, {
+services.factory('ContactFactory', function ($resource) {
+    return $resource('/api/contact/:id', {}, {
         show: { method: 'GET'},
+        delete: { method: 'DELETE', params: {id:'@id'}},
         update: { method: 'PUT', params: {id:'@id'} }
     })
 });

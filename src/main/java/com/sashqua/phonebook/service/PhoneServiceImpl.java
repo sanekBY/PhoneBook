@@ -5,6 +5,7 @@ import com.sashqua.phonebook.entity.PhoneBook;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,17 +23,45 @@ public class PhoneServiceImpl implements PhoneService{
 
     @Override
     public void createPhoneBook(PhoneBook phoneBook) {
-        phoneBook.setId(allPhones.size() + 1);
-        allPhones.add(phoneBook);
+        try {
+            phoneBook.setId(allPhones.size() + 1);
+            allPhones.add(phoneBook);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
-    public PhoneBook editPhoneBook() {
+    public PhoneBook editContact(Integer id) {
         return null;
     }
 
     @Override
-    public void deletePhoneBook(Integer id) {
+    public void deleteContact(Integer id) {
+        try {
+            Iterator<PhoneBook> iterator = allPhones.iterator();
+            while (iterator.hasNext()) {
+                PhoneBook phoneBook = iterator.next();
+                if (phoneBook.getId() == id) {
+                    iterator.remove();
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
 
+
+    @Override
+    public PhoneBook getContact(Integer id) {
+        try {
+            for (PhoneBook phoneBook:allPhones) {
+                if (phoneBook.getId() == id) return phoneBook;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return null;
     }
 }
