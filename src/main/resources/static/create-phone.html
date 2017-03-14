@@ -1,0 +1,70 @@
+<div class="container">
+    <h1>Новый контакт</h1>
+
+    <form class="form-inline">
+        <div class=control-group"">
+            <label class="control-label" for="lastName">Фамилия:</label>
+            <div class="input-lg">
+                <input id="lastName" type="text" data-ng-model="phbook.lastName" />
+            </div>
+
+            <label class="control-label" for="firstName">Имя:</label>
+            <div class="input-lg">
+                <input id="firstName" type="text" data-ng-model="phbook.firstName" />
+            </div>
+
+            <label class="control-label" for="middleName">Отчество:</label>
+            <div class="input-lg">
+                <input id="middleName" type="text" data-ng-model="phbook.middleName" />
+            </div>
+
+            <label class="control-label" for="dateOfBirth">Дата рождения:</label>
+            <div class="input-lg">
+                <input id="dateOfBirth" type="date" data-ng-model="phbook.dateOfBirth"
+                       placeholder="yyyy-MM-dd" min="1950-01-01" max="2017-03-14" required/>
+
+            </div>
+
+            <label  class="control-label" for="phones">Телефон:</label>
+            <fieldset  id = "phones"  data-ng-repeat="item in phones">
+                    <div class="input-lg" >
+                        <input type="text" data-ng-model="item.phoneNumber" required/>
+                        <select data-ng-model="item.phoneType">
+                            <option data-ng-repeat="type in phoneTypes" value="{{type.id}}">{{type.name}}</option>
+                        </select>
+
+                        <button class="remove" data-ng-show="$last" data-ng-click="removePhone()">-</button>
+                        <button class="add" data-ng-show="$last" data-ng-click="addPhone()">+</button>
+                    </div>
+            </fieldset>
+
+            <label  class="control-label" for="addresses">Адрес:</label>
+            <fieldset  id = "addresses"  data-ng-repeat="item in addresses">
+                <div class="input-lg" >
+                    <input type="text" data-ng-model="item.address"/>
+                    <button class="remove" data-ng-show="$last" data-ng-click="removeAddress()">-</button>
+                    <button class="add" data-ng-show="$last" data-ng-click="addAddress()">+</button>
+                </div>
+            </fieldset>
+
+            <label  class="control-label" for="mails">Почта:</label>
+            <fieldset  id = "mails"  data-ng-repeat="item in mails">
+                <div class="input-lg" >
+                    <input type="email" data-ng-model="item.email"/>
+                    <select data-ng-model="item.emailType">
+                        <option data-ng-repeat="type in emailTypes" value="{{type.id}}">{{type.name}}</option>
+                    </select>
+                    <button class="remove" data-ng-show="$last" data-ng-click="removeEmail()">-</button>
+                    <button class="add" data-ng-show="$last" data-ng-click="addEmail()">+</button>
+                </div>
+            </fieldset>
+
+        </div>
+
+        <div class="control-group">
+            <div class="form-select-button">
+                <a data-ng-click="createNewPhoneBook()" class="btn btn-success">Готово</a>
+            </div>
+        </div>
+    </form>
+</div>
